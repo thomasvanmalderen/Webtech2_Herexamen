@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var MatchSchema = mongoose.Schema({
     
+    Matchname: String,
     Country1ID: String,
     Country2ID: String,
     Country1Goals: Number,
