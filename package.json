@@ -1,0 +1,27 @@
+{
+  "name": "webtech2_herexamen",
+  "version": "1.0.0",
+  "description": "webtech 2 herexamen football app",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.7",
+    "multer": "^1.1.0",
+    "pug": "^2.0.0-beta4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasvanmalderen/Webtech2_Herexamen.git"
+  },
+  "author": "thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasvanmalderen/Webtech2_Herexamen/issues"
+  },
+  "homepage": "https://github.com/thomasvanmalderen/Webtech2_Herexamen#readme"
+}
