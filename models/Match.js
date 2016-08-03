@@ -1,16 +1,17 @@
 var mongoose = require('mongoose');
 
-var MatchSchema = mongoose.Schema({
-    
-    Matchname: String,
-    Country1ID: String,
-    Country2ID: String,
-    Country1Goals: Number,
-    Country2Goals: Number,
-    Country1Shots: Number,
-    Country2Shots: Number,
-    Country1Fouls: Number,
-    Country2Fouls: Number,
+var Schema = mongoose.Schema;
+
+var MatchSchema = new Schema({
+    matchname: String,
+    country1ID: String,
+    country2ID: String,
+    country1Goals: Number,
+    country2Goals: Number,
+    country1Shots: Number,
+    country2Shots: Number,
+    country1Fouls: Number,
+    country2Fouls: Number,
     commentary: [{
         message: String
     }],

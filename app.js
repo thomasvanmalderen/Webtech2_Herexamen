@@ -3,18 +3,25 @@
 // BASE SETUP
 // =============================================================================
 
-// call the packages we need
+// packages
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost/Football'); // connect to our database
+var jade    = require('jade');
 var Match = require('./models/Match');
+var matchController = require('./controllers/match-controller');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+/*var mongoURI = "mongodb://localhost:27017/Football";
+mongoose.connect(mongoURI);*/
+
+app.set('view engine', 'jade');
 
 var port = process.env.PORT || 8080;        // set our port
 
@@ -119,4 +126,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('App running on port ' + port);
