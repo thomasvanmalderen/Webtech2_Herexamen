@@ -8,7 +8,8 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost/Football'); // connect to our database
+    mongoose.connect('mongodb://localhost/Football'); // connect to our database
+
 var jade    = require('jade');
 var Match = require('./models/Match');
 var matchController = require('./controllers/match-controller');
@@ -49,9 +50,9 @@ router.route('/matches')
     .post(function(req, res) {
         
         var match = new Match();      // create a new instance of the Bear model
-        match.name = req.body.Matchname;  // set the bears name (comes from the request)
+        match.name = req.body.Matchname;  // set the matches name (comes from the request)
 
-        // save the bear and check for errors
+        // save the match and check for errors
         match.save(function(err) {
             if (err)
                 res.send(err);
@@ -61,7 +62,7 @@ router.route('/matches')
         
     })
 
-    // get all the bears (accessed at GET http://localhost:8080/api/bears)
+    // get all the matches (accessed at GET http://localhost:8080/api/matches)
     .get(function(req, res) {
         Match.find(function(err, matches) {
             if (err)
@@ -72,11 +73,11 @@ router.route('/matches')
     });
 
 
-// on routes that end in /bears/:bear_id
+// on routes that end in /matches/:match_id
 // ----------------------------------------------------
 router.route('/matches/:match_id')
 
-    // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
+    // get the match with that id (accessed at GET http://localhost:8080/api/matches/:match_id)
     .get(function(req, res) {
         Match.findById(req.params.match_id, function(err, match) {
             if (err)
@@ -85,18 +86,18 @@ router.route('/matches/:match_id')
         });
     })
 
-    // update the bear with this id (accessed at PUT http://localhost:8080/api/bears/:bear_id)
+    // update the match with this id (accessed at PUT http://localhost:8080/api/matches/:match_id)
     .put(function(req, res) {
 
-        // use our bear model to find the bear we want
+        // use our match model to find the match we want
         Match.findById(req.params.match_id, function(err, match) {
 
             if (err)
                 res.send(err);
 
-            match.name = req.body.name;  // update the bears info
+            match.name = req.body.name;  // update the match info
 
-            // save the bear
+            // save the match
             match.save(function(err) {
                 if (err)
                     res.send(err);
@@ -107,7 +108,7 @@ router.route('/matches/:match_id')
         });
     })
 
-    // delete the bear with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
+    // delete the match with this id (accessed at DELETE http://localhost:8080/api/matches/:match_id)
     .delete(function(req, res) {
         Match.remove({
             _id: req.params.match_id

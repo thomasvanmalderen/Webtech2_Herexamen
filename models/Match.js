@@ -1,8 +1,10 @@
-var mongoose = require('mongoose');
+// MATCH.JS - Match model for mongoose database
 
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var MatchSchema = new Schema({
+    
     matchname: String,
     country1ID: String,
     country2ID: String,
