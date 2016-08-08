@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+    head
+        title= IMDFootball
+        script
+            include ../script/jquery-2.2.3.min.js
+            include ../script/discussions.js
+        script.
+            var id = '!{id}'
+
+    body
+        div.discussions__container
+        include ./create.jade
