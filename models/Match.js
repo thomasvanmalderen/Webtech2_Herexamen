@@ -6,8 +6,8 @@ var Schema = mongoose.Schema;
 var MatchSchema = new Schema({
     
     matchname: String,
-    country1ID: String,
-    country2ID: String,
+    country1name: String,
+    country2name: String,
     country1Goals: Number,
     country2Goals: Number,
     country1Shots: Number,
