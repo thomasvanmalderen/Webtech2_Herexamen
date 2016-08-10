@@ -29,4 +29,28 @@ router.route('/')
                 res.send('Match already exists!')
             }
     })
-})
+    })
+    .get(function (req,res){
+    
+        Match.find()
+        .exec(function(error, matches){
+            if(error)
+                res.send(error);
+            res.json(matches);
+        })
+    })
+    .delete(function (req, res) {
+        Match
+            .findOne({matchname: req.params.matchname})
+            .exec(function (error, match) {
+                if (error)
+                    res.send(error);
+                match.remove(function (error) {
+                    if (error)
+                        res.send(error);
+                    res.json({message:'Match deleted!'});
+                })
+            })
+    });
+
+module.exports = router;

@@ -38,11 +38,10 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'Welcome to the api.' });   
 });
 
-// more routes for our API will happen here
-router.route('/matches')
+/*router.route('/matches')
 
     // create a bear (accessed at POST http://localhost:8080/api/bears)
     .post(function(req, res) {
@@ -70,10 +69,9 @@ router.route('/matches')
         });
     });
 
+*/
 
-// on routes that end in /matches/:match_id
-// ----------------------------------------------------
-router.route('/matches/:match_id')
+/*router.route('/matches/:match_id')
 
     // get the match with that id (accessed at GET http://localhost:8080/api/matches/:match_id)
     .get(function(req, res) {
@@ -116,13 +114,12 @@ router.route('/matches/:match_id')
 
             res.json({ message: 'Successfully deleted' });
         });
-    });
+    });*/
 
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
+
 app.use('/api', router);
 
-// START THE SERVER
-// =============================================================================
+router.use('/matches', matchController);
+
 app.listen(port);
 console.log('App running on port ' + port);
