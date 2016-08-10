@@ -37,8 +37,10 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+app.use('/api', router);
+
 router.get('/', function(req, res) {
-    res.json({ message: 'Welcome to the api.' });   
+    res.json({ message: 'Welcome to the api, you loser.' });   
 });
 
 /*router.route('/matches')
@@ -117,9 +119,24 @@ router.get('/', function(req, res) {
     });*/
 
 
-app.use('/api', router);
+
 
 router.use('/matches', matchController);
+
+app.use('/create', function(req, res) {
+    res.render('create')
+});
+
+app.use('/discussions/:discussion_id',
+function (req, res){
+    var id = req.params.discussion_id;
+    res.render('matches', {id})
+});
+
+app.use('/matches',
+    function (req, res) {
+        res.render('discussions')
+    });
 
 app.listen(port);
 console.log('App running on port ' + port);

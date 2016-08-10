@@ -39,6 +39,44 @@ router.route('/')
             res.json(matches);
         })
     })
+    
+router.route('/:matchname')
+    .put(function (req, res) {
+        Match.findOne(
+            {matchname: req.params.matchname},
+            function (error, match) {
+                if (error)
+                    res.send(error);
+                    match.matchname = req.body.matchname;
+                    match.country1name = req.body.country1name;
+                    match.country2name = req.body.country2name;
+                    match.country1Goals = req.body.country1Goals;
+                    match.country2Goals = req.body.country2Goals;
+                    match.country1Shots = req.body.country1Shots;
+                    match.country2Shots = req.body.country2Shots;
+                    match.country1Fouls = req.body.country1Fouls;
+                    match.country2Fouls = req.body.country2Fouls;
+                    match.commentary = req.body.commentary;
+                    match.save(function (error) {
+                    if (error)
+                        res.send(error);
+                    res.json({message: 'Match updated!', match: match})
+                });
+            }
+        )
+    })
+    .get(function (req, res) {
+        Match
+            .findOne({matchname: req.params.matchname})
+            .exec(function (error, match) {
+                if (error)
+                    res.send(error);
+                res.json(match);
+//                res.render('discussion', {
+//                    discussion: discussion
+//                });
+            })
+    })
     .delete(function (req, res) {
         Match
             .findOne({matchname: req.params.matchname})
