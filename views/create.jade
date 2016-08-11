@@ -1,9 +1,13 @@
-br
-br
-div
-    a#match__create-btn(href="#") create
+
 div
     form#match__create
-        
+        label(for='matchname',class='control-label') Matchname
         input(type="text" name="matchname")
+        br
+        label(for='country1name',class='control-label') Country 1
+        input(type="text" name="country1name")
+        br
+        label(for='country2name',class='control-label') Country 2
+        input(type="text" name="country2name")
+        br
         input(type="submit" val="click")

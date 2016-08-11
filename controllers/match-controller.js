@@ -8,12 +8,12 @@ router.route('/')
         match.matchname = req.body.matchname;
         match.country1name = req.body.country1name;
         match.country2name = req.body.country2name;
-        match.country1Goals = req.body.country1Goals;
-        match.country2Goals = req.body.country2Goals;
-        match.country1Shots = req.body.country1Shots;
-        match.country2Shots = req.body.country2Shots;
-        match.country1Fouls = req.body.country1Fouls;
-        match.country2Fouls = req.body.country2Fouls;
+        match.country1Goals = 0;
+        match.country2Goals = 0;
+        match.country1Shots = 0;
+        match.country2Shots = 0;
+        match.country1Fouls = 0;
+        match.country2Fouls = 0;
         match.commentary = req.body.commentary;
     Match.findOne({matchname: match.matchname}).exec(function(error, existingMatch){
         if (error)
