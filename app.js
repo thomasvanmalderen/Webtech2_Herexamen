@@ -127,15 +127,15 @@ app.use('/create', function(req, res) {
     res.render('create')
 });
 
-app.use('/discussions/:discussion_id',
+app.use('/matches/:matchname',
 function (req, res){
-    var id = req.params.discussion_id;
+    var id = req.params.matchname;
     res.render('matches', {id})
 });
 
 app.use('/matches',
     function (req, res) {
-        res.render('discussions')
+        res.render('matches')
     });
 
 app.listen(port);
