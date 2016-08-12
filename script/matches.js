@@ -32,101 +32,59 @@ var Matches = Object.create({
             this._discussions.concat(matches);
         }
     }),
-    /*Match = Object.create({
+    Match = Object.create({
         _match: {},
-        _questions: null,
-        init: function (discussion) {
-            this._discussion = discussion;
-            if (this.get('questions').length && typeof this.get('questions')[0] === 'object') {
+        
+        init: function (match) {
+            this._match = match;
+            /*if (this.get('questions').length && typeof this.get('questions')[0] === 'object') {
                 this.initQuestions(this.get('questions'));
-            }
+            }*/
             return this;
         },
-        initQuestions: function (questions) {
+        /*initQuestions: function (questions) {
             this._questions = Object.create(Questions).init(questions);
-        },
+        },*/
         render: function () {
-            var el = $('<div><a href="discussions/'+this._discussion.topic+'">'+this._discussion.topic+'</a></div>'),
+            var el = $('<div><a href="matches/'+this._match.matchname+'">'+this._match.matchname+'</a></div>'),
                 editBtn = $('<a>edit</a>');
 
             //BIND TO FORCE 'THIS' TO CURRECT DISCUSSION
             //IF NOT THIS WILL REFER THE CLICK EVENT
             editBtn.on('click', this.edit.bind(this));
             el.append(editBtn);
-            if (this._questions)
-                el.append(this._questions.render());
+            /*if (this._questions)
+                el.append(this._questions.render());*/
             return el;
         },
-        edit: function () {
-            var form = $('#discussion__create');
+        /*edit: function () {
+            var form = $('#match__create');
             form.css('display', 'block');
             if (form) {
-                for (var k in this._discussion) {
-                    form.find('input[name="'+k+'"]').val(this._discussion[k]);
+                for (var k in this._match) {
+                    form.find('input[name="'+k+'"]').val(this._match[k]);
                 }
             }
-        },
+        },*/
         get: function (key) {
-            return this._discussion[key];
+            return this._match[key];
         }
     }),
-    Questions = Object.create({
-        _questions: [],
-        init: function (questions) {
-            var arr = [];
-            questions.map(function (question) {
-                arr.push(Object.create(Question).init(question));
-            });
-            this._questions = arr;
-            return this;
-        },
-        get: function (index) {
-            return this._discussions[index];
-        },
-        render: function () {
-            var elements = [];
-            this._questions.map(function (question) {
-                elements.push(question.render());
-            });
-            return elements;
-        },
-        add: function (question) {
-            this._questions.push(question);
-        },
-        addMultiple: function (_questions) {
-            this._questions.concat(_questions);
-        }
-    }),
-    Question = Object.create({
-        _question: {},
-        init: function (question) {
-            this._question = question;
-            return this;
-        },
-        render: function () {
-            return $('<div>'+this.get('question')+'</div>');
-        },
-        get: function (key) {
-            return this._question[key];
-        }
-    }),
-    Answers = Object.create({
+    
 
-    }),
-    Anwer = Object.create({
-
-    });
-
-    objectToRender = null;*/
+    objectToRender = null;
 
 $(document).ready(function () {
-    if (id) {
+    /*if (id) {
         fetchMatch(id);
     }
     else {
         fetchMatches();
-    }
+    }*/
+    //alert("working");
+    fetchMatches();
     $('#match__create-btn').on('click', function (e) {
+        alert("create");
         e.preventDefault();
         $('#match__create').css('display', 'block');
     });
@@ -180,6 +138,7 @@ var fetchMatches = function () {
         method: 'GET',
         dataType: 'json',
         success: function (matches) {
+            console.log(matches);
             objectToRender = Object.create(Matches).init(matches);
             $('.matches__container').empty();
             $('.matches__container').append(objectToRender.render());
