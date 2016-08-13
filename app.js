@@ -127,16 +127,28 @@ app.use('/create', function(req, res) {
     res.render('create')
 });
 
-app.use('/matches/:matchname',
-function (req, res){
+app.use('/matches/:matchname', function (req, res){
+    
+    //console.log(req.params.matchname);
+    console.log(req.params);
     var id = req.params.matchname;
-    res.render('matches', {id})
+    //console.log(id);
+    /*var country1 = req.params.country1name;
+    var country2 = req.params.country2name;
+    var country1goals = req.params.country1Goals;
+    var country2goals = req.params.country2Goals;*/
+    res.render('match', {id})
+    //, country1: country1, country2:country2, country1goals:country1goals, country2goals:country2goals
 });
 
 app.use('/matches',
     function (req, res) {
         res.render('matches')
     });
+
+
+
+
 
 app.listen(port);
 console.log('App running on port ' + port);

@@ -1,9 +1,10 @@
 var BASEURL = '/api/';
+var adminLoggedin;
 var Matches = Object.create({
         _matches: [],
         init: function (matches) {
             var arr = [];
-            discussions.map(function (match) {
+            matches.map(function (match) {
                 arr.push(Object.create(Match).init(match));
             });
             this._matches = arr;
@@ -46,13 +47,13 @@ var Matches = Object.create({
             this._questions = Object.create(Questions).init(questions);
         },*/
         render: function () {
-            var el = $('<div><a href="matches/'+this._match.matchname+'">'+this._match.matchname+'</a></div>'),
+            var el = $('<div><a href="'+this._match.matchname+'">'+this._match.matchname+'</a></div>'),
                 editBtn = $('<a>edit</a>');
 
             //BIND TO FORCE 'THIS' TO CURRECT DISCUSSION
             //IF NOT THIS WILL REFER THE CLICK EVENT
-            editBtn.on('click', this.edit.bind(this));
-            el.append(editBtn);
+            /*editBtn.on('click', this.edit.bind(this));
+            el.append(editBtn);*/
             /*if (this._questions)
                 el.append(this._questions.render());*/
             return el;
@@ -121,11 +122,12 @@ $(document).ready(function () {
 });
 
 var fetchMatch = function (id) {
+    alert("fetchmatch");
     $.ajax({
         url: BASEURL+'matches/'+id,
         method: 'GET',
         dataType: 'json',
-        success: function (discussion) {
+        success: function (match) {
             objectToRender = Object.create(Match).init(match);
             $('.matches__container').empty();
             $('.matches__container').append(objectToRender.render());
@@ -133,6 +135,7 @@ var fetchMatch = function (id) {
     })
 };
 var fetchMatches = function () {
+    //alert("fetchmatches");
     $.ajax({
         url: BASEURL + 'matches/',
         method: 'GET',

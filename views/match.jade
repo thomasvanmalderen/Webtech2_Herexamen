@@ -1,12 +1,28 @@
 doctype html
 html(lang="en")
   head
-    title= IMD Football
+    title IMD Football #{id}
     script
         include ../script/jquery-2.2.3.min.js
-        include ../script/matches.js
+        include ../script/match.js
     script.
-        var id = '!{id}'
+        var id = '!{matchname}'
+        var country1 = '!{country1}'
+        var country2 = '!{country2}'
+        var country1goals = '!{country1goals}'
+        var country2goals = '!{country2goals}'
+        
     
   body
+      h1 hello
       h1 #{id}
+      br
+      div.match__results
+        h3 #{country1}
+        h4 #{country1goals}
+        h4 #{country2goals}
+        h3 #{country2}
+      //br
+      //div.match__details
+      //  p #[span #{country1shots} ] Total shots #[span #{country2shots} ]
+      //  p #[span #{country1fouls} ] Total shots #[span #{country2fouls} ]
