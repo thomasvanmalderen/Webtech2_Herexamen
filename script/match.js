@@ -1,15 +1,11 @@
 var BASEURL = '/api/';
 var adminLoggedin = false;
     Match = Object.create({
+        
         //_match: {},
         _match: [],
-       
         init: function (match) {
-            
-            /*this._match = match;
-            /*if (this.get('questions').length && typeof this.get('questions')[0] === 'object') {
-                this.initQuestions(this.get('questions'));
-            }*/
+            //this._match = match;
             var arr = [];
             match.map(function (match) {
                 arr.push(Object.create(Match).init(match));
@@ -17,9 +13,17 @@ var adminLoggedin = false;
             this._match = arr;
             return this;
         },
-        
         render: function () {
+            var elements = [];
+            this._matches.map(function (match) {
+                elements.push(match.render());
+            });
+            return elements;
+        },
+        /*render: function () {
             var el = this._match.matchname + ', ' + this._match.country1name;
+            
+            //console.log("country1" + this._match.country1name);
             //$('<div><a href="matches/'+this._match.matchname+'">'+this._match.matchname+'</a></div>');
             
             return el;
@@ -90,14 +94,17 @@ $(document).ready(function () {
 var fetchMatch = function (id) {
     //alert("fetchmatch");
     //alert("fetching");
+    //var matchname = req.params.matchname;
     $.ajax({
-        url: BASEURL+'matches/'+matchname,
+        url: BASEURL+'matches/'+ id,
         method: 'GET',
         dataType: 'json',
-        success: function (match) {
-            objectToRender = Object.create(Match).init(match);
-            /*$('.matches__container').empty();
-            $('.matches__container').append(objectToRender.render());*/
+        success: function (err, data) {
+            
+            /*objectToRender = Object.create(Match).init(match);
+            $('.match__results').empty();
+            $('.match__results').append(objectToRender.render());*/
+            
         }
     })
 };

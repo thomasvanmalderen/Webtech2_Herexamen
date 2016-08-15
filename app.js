@@ -132,7 +132,7 @@ app.use('/matches/:matchname', function (req, res){
     //console.log(req.params.matchname);
     console.log(req.params);
     var id = req.params.matchname;
-    //console.log(id);
+    
     /*var country1 = req.params.country1name;
     var country2 = req.params.country2name;
     var country1goals = req.params.country1Goals;
