@@ -1,9 +1,4 @@
-// app.js
-
-// BASE SETUP
-// =============================================================================
-
-// packages
+/*
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
@@ -18,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 /*var mongoURI = "mongodb://localhost:27017/Football";
-mongoose.connect(mongoURI);*/
+mongoose.connect(mongoURI);
 
 app.set('view engine', 'jade');
 
@@ -120,7 +115,7 @@ router.get('/', function(req, res) {
 
 
 
-
+/*
 router.use('/matches', matchController);
 
 app.use('/create', function(req, res) {
@@ -136,7 +131,7 @@ app.use('/matches/:matchname', function (req, res){
     /*var country1 = req.params.country1name;
     var country2 = req.params.country2name;
     var country1goals = req.params.country1Goals;
-    var country2goals = req.params.country2Goals;*/
+    var country2goals = req.params.country2Goals;
     res.render('match', {id})
     //, country1: country1, country2:country2, country1goals:country1goals, country2goals:country2goals
 });
@@ -151,4 +146,52 @@ app.use('/matches',
 
 
 app.listen(port);
-console.log('App running on port ' + port);
+console.log('App running on port ' + port);*/
+
+//=============================================================================================
+//=============================================================================================
+//=============================  INDEX.JS  -  FOOTBALL APP  ================================
+//=============================================================================================
+//=============================================================================================
+
+
+var express = require('express');
+var app = express();
+
+//SOCKET IO
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+var controller = require('./controllers/matches');
+
+//BODYPARSER
+var bodyParser = require('body-parser');
+
+//MONGOOSE
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/Football');
+
+// parse application/json , define this BEFORE adding routes
+app.use(bodyParser.json());
+
+//PUG
+app.set('view engine', 'pug');
+
+app.use('/', require('./routers/index'));
+app.use('/matches', require('./routers/matches'));
+
+//ALL SOCKETS
+io.on('connection', function(socket){
+  socket.on("New Match", function(newMatch){
+      controller.create(newMatch, function(returnMatch){
+        console.log(returnMatch);
+        io.emit("newMatchInDB", returnMatch);
+      });
+  });
+  
+});
+
+http.listen(3000, function(){
+  console.log('App working on port *:3000');
+});
