@@ -30,14 +30,15 @@ function getAll (req, res) {
 
 function getMatch (req, res, id) {
     var json = {};
-    Match.findOne({'matchname': matchname}, 'match matchname', function(err, match){
+    Match.findOne({'_id': id}, function(err, match){
         if(err){
             console.log(match);
         }
         json.match = match;
         console.log('json match=' + json.match);
 		console.log('json match.matchname=' + json.match.matchname);
-		
+        console.log(json.match.country1Goals);
+		return res.render('match', {match: match});
     }
   )
 }

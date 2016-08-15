@@ -13,7 +13,7 @@ $( document ).ready(function() {
     
     //TALK TO CLIENT
     socket.on('newMatchInDB', function(newMatchInDB){
-        var newMatch = "<a href='/matches/" + newMatchInDB._id + "'><h2 class='match'>" + newDiscussionInDB.discussion + "</h2></a>";
+        var newMatch = "<a href='/matches/" + newMatchInDB._id + "'><h2 class='match'>" + newMatchInDB.match + "</h2></a>";
         $('.matches').append(newMatch);
     })
     

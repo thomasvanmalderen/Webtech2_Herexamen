@@ -10,11 +10,13 @@ html
   body
 div.container
   h1= "Matches"
-    form
+    form.match__create
       div.input
         input(type = "text", id = "matchName" class='inputfield' placeholder = "matchname")
+        input(type = "text", id = "country1Name" class='inputfield' placeholder = "Name of host country")
+        input(type = "text", id = "country2Name" class='inputfield' placeholder = "Name of visitor country")
         div(type = "submit", id = "submitMatch" class='flat-button') Post a new match
       ul.matches
         each match in matches
-          a(href = '/matches/' + match.matchname)
+          a(href = '/matches/' + match.id)
             h2.match #{match.matchname}

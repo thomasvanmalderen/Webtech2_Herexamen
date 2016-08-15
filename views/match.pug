@@ -1,6 +1,6 @@
 html
   head
-    title= "IMD Football"
+    title= "IMD Football " + match.matchname
     //style
       //include ../../build/css/build.css
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
@@ -10,4 +10,19 @@ html
   body
   div.container
     h1(id="matchName" data-matchname= "" + match.matchname)= match.matchname
-    
+    a(href='http://localhost:3000/matches/') Back to matches
+    div.match__results
+      h2.country1name= match.country1name
+      h3.country1goals= JSON.stringify(match.country1Goals)
+      h3.country2goals= JSON.stringify(match.country2Goals)
+      h2.country2name= match.country2name
+    hr
+    div.match__details
+      h4.totalshots
+        span= JSON.stringify(match.country1Shots) + ' '
+        | Total shots 
+        span= JSON.stringify(match.country2Shots)
+      h4.totalfouls
+        span= JSON.stringify(match.country1Fouls) + ' '
+        | Total fouls 
+        span= JSON.stringify(match.country2Fouls)
