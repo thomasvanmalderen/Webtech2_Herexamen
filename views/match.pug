@@ -26,3 +26,15 @@ html
         span= JSON.stringify(match.country1Fouls) + ' '
         | Total fouls 
         span= JSON.stringify(match.country2Fouls)
+    hr
+    br
+    div.match__manage
+        input(type = "text", id = "matchName" class='inputfield' placeholder = "matchname" value=match.matchname)
+        input(type = "text", id = "country1name" class='inputfield' placeholder = "country1name" value=match.country1name)
+        input(type = "text", id = "country2name" class='inputfield' placeholder = "country2name" value=match.country2name)
+        input(type = "text", id = "country1goals" class='inputfield' placeholder = "country1goals" value=match.country1Goals)
+        input(type = "text", id = "country2goals" class='inputfield' placeholder = "country2goals" value=match.country2Goals)
+        input(type = "text", id = "country1shots" class='inputfield' placeholder = "country1shots" value=match.country1Shots)
+        input(type = "text", id = "country2shots" class='inputfield' placeholder = "country2shots" value=match.country2Shots)
+        input(type = "text", id = "country1fouls" class='inputfield' placeholder = "country1fouls" value=match.country1Fouls)
+        input(type = "text", id = "country2fouls" class='inputfield' placeholder = "country2fouls" value=match.country2Fouls)
