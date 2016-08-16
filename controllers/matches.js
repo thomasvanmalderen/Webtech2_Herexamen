@@ -1,20 +1,28 @@
 var Match = require('../models/Match');
 
-function create (newMatch, returnMatch){
+function create (data, newMatch){
 
     console.log('Created new match');
 	// save a new instance of this model
-	var newMatch = new Match({
-		//user: req.body.user,
-		match: newMatch
+	var match = new Match({
+		matchname: data.matchname,
+        country1name: data.country1name,
+        country2name: data.country2name,
+        country1Goals: 0,
+        country2Goals: 0,
+        country1Shots: 0,
+        country2Shots: 0,
+        country1Fouls: 0,
+        country2Fouls: 0,
+        commentary: [{
+            message: ""
+        }]
 	});
     
-    console.log('Match: ' + newMatch);
-	
-	newMatch.save(function (err, match) {
+	match.save(function (err, match) {
 	  if (err) return console.error(err);
         console.log("Saved " + match);
-        returnMatch(match);
+        newMatch(match);
 	});
 }
 
