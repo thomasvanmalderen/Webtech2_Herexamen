@@ -21,6 +21,11 @@ app.use(bodyParser.json());
 //PUG
 app.set('view engine', 'pug');
 
+//USE IMAGES ETC
+app.use(express.static('public'));
+app.use(express.static('files'));
+app.use('/static', express.static('public'));
+
 app.use('/', require('./routers/index'));
 app.use('/matches', require('./routers/matches'));
 
@@ -33,6 +38,12 @@ io.on('connection', function(socket){
       });
   });
   
+    socket.on("Update Match", function(updateMatch){
+      controller.update(updateMatch, function(returnMatch){
+        console.log(returnMatch);
+        io.emit("updateMatchInDB", returnMatch);
+      });
+  });
 });
 
 http.listen(3000, function(){
