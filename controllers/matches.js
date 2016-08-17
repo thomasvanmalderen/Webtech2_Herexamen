@@ -29,10 +29,12 @@ function create (data, newMatch){
 module.exports.create = create;
 
 //ADD GOAL
-function c1plusGoal (data, id){
-    console.log("coolie" + data);
+function c1plusGoal (goals1, id){
+    console.log("coolie" + goals1);
     Match.findOne({'_id': id}, function(err, match){
-        match.country1Goals = data.match.country1Goals + 1;
+        if (err) return console.error(err);
+        match.country1Goals = goals1 + 1;
+        match.save();
     })
 }
 
@@ -41,7 +43,7 @@ module.exports.c1plusGoal = c1plusGoal;
 function getAll (req, res) {
 	Match.find( function(err, matches){
 		if (err) return console.error(err);
-        console.log(matches);
+        //console.log(matches);
 		return res.render('matches', {matches: matches});
 	});
 }
@@ -53,8 +55,8 @@ function getMatch (req, res, id) {
             console.log(match);
         }
         json.match = match;
-        console.log('json match=' + json.match);
-		console.log('json match.matchname=' + json.match.matchname);
+        //console.log('json match=' + json.match);
+		//console.log('json match.matchname=' + json.match.matchname);
         //console.log(json.match.country1Goals);
 		return res.render('match', {match: match});
     }

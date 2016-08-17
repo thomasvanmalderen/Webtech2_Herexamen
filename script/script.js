@@ -32,18 +32,17 @@ $( document ).ready(function() {
     
     //ADD GOALS
     $('#country1goalplus').click(function(e){
-        alert($('#country1goals').val());
-        
         var data1 = {
-            country1Goals: parseInt($('#country1goals').text()),
+            country1Goals: parseInt($('#country1goals').val()),
         };
-        socket.emit("c1plusgoal", data1);
-        alert(data1);
+        
+        var goals1 = parseInt($('#country1goals').val());
+        console.log(data1);
+        alert(goals1);
+        socket.emit("c1plusgoal", goals1);
     });
     
     socket.on('addedc1goal', function(matchinDB){
-        //console.log("kappa" + newMatchInDB);
-        //var newMatch = "<a href='/matches/" + newMatchInDB._id + "'><h2 class='match'>" + newMatchInDB.matchname + "</h2></a>";
         $('.country1goals').val() = matchinDB.country1Goals;
     });
     

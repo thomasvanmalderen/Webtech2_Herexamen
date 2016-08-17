@@ -38,17 +38,10 @@ io.on('connection', function(socket){
       });
   });
   
-    socket.on("Update Match", function(updateMatch){
-      controller.update(updateMatch, function(returnMatch){
-        console.log(returnMatch);
-        io.emit("updateMatchInDB", returnMatch);
-      });
-  });
-    
     socket.on("c1plusgoal", function(addgoal){
-      controller.c1plusGoal(addgoal, function(returnMatch){
-        console.log(returnMatch);
-        io.emit("addedc1goal", returnMatch);
+      controller.c1plusGoal(addgoal, function(goal1){
+        //console.log(returnMatch);
+        io.emit("addedc1goal");
       });
   });
 });
