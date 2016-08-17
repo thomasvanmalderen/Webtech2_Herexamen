@@ -1,4 +1,19 @@
 .app__name {
-    font-size: 2em;
-    
+    font-size: 2.8em;
+    text-align: center;
+    padding: 2%;
+    font-weight: bold;
+}
+
+.matches {
+    padding-left: 15%;
+}
+
+.match__match {
+    font-size: 1.5em;
+    color: $textcolor;
+}
+
+.match:visited {
+    color: $textcolor;
 }

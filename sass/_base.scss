@@ -25,16 +25,24 @@ html {
 
 body {
     background-image: $background-pattern;
-    width: 2000px;
+    background: repeating-linear-gradient(
+      90deg,
+      #55B341,
+      #55B341 80px,
+      #6BD755 80px,
+      #6BD755 160px
+    );
+    
     background-position: center;
 }
 
 .container {
     margin-top: 50px;
-    background-color: $background;
+    background-color: white;
     width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0%;
     border-radius: 10px;
+    
 }

@@ -1,9 +1,9 @@
 html
   head
     title= "IMD Football: Matches"
-    //link(type='text/css', rel='stylesheet', href='http://meyerweb.com/eric/tools/css/reset/reset.css')
+    link(type='text/css', rel='stylesheet', href='http://meyerweb.com/eric/tools/css/reset/reset.css')
     style
-      include ../css/base.css
+      include ../css/style.css
       
     script(src='https://code.jquery.com/jquery-2.2.3.min.js')
     script
@@ -11,7 +11,7 @@ html
     script(src='http://localhost:3000/socket.io/socket.io.js')
   body
   div.container
-    h1.app__name= "IMD Football - Euro cup"
+    h1.app__name= "- IMD Football - Euro cup -"
     form.match__create
       div.input
         input(type = "text", id = "matchName" class='inputfield' placeholder = "matchname")
@@ -21,7 +21,7 @@ html
         input(type = "text", id = "country2Name" class='inputfield' placeholder = "Name of visitor country")
         br
         div(type = "submit", id = "submitMatch" class='flat-button') Post a new match
-      ul.matches
+    ul.matches
         each match in matches
-          a(href = '/matches/' + match.id)
+          a.match__match(href = '/matches/' + match.id)
             h2.match #{match.matchname}

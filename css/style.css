@@ -1,0 +1,70 @@
+/*sass ./sass/style.scss ./css/style.css*/
+html {
+  font-family: "Helvetica", "Arial", sans-serif; }
+
+body {
+  background-image: url("../flags/footballfield_background.jpg");
+  background: repeating-linear-gradient(90deg, #55B341, #55B341 80px, #6BD755 80px, #6BD755 160px);
+  background-position: center; }
+
+.container {
+  margin-top: 50px;
+  background-color: white;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 0%;
+  border-radius: 10px; }
+
+form {
+  background-color: #ccc;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px; }
+
+.match__create {
+  padding: 1%; }
+
+.input {
+  padding-left: 15%; }
+
+input[type="submit"] {
+  background-color: white;
+  color: "#3D3D3D";
+  padding: 10px;
+  border-radius: 5px; }
+
+input[type="text"] {
+  background-color: white;
+  color: "#3D3D3D";
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.flat-button {
+  background-color: #FFCC00;
+  color: #3D3D3D;
+  text-align: center;
+  width: 50%;
+  padding: 8px; }
+
+.app__name {
+  font-size: 2.8em;
+  text-align: center;
+  padding: 2%;
+  font-weight: bold; }
+
+.matches {
+  padding-left: 15%; }
+
+.match__match {
+  font-size: 1.5em;
+  color: "#3D3D3D"; }
+
+.match:visited {
+  color: "#3D3D3D"; }
+
+/*# sourceMappingURL=style.css.map */
