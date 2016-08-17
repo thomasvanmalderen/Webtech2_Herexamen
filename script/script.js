@@ -2,20 +2,6 @@ $( document ).ready(function() {
     //var socket = io.connect('http://localhost:3000');
     var socket = io();
     
-    /*switch($('.country1name').text()){
-        case "Belgium":
-            $('.country1flag').attr("src", "../flags/Belgium.png"); 
-            break;
-        case "Ireland":
-            //$('.country2name').style.backgroundColor("Red");
-            break;
-        default:
-            $('.country1name').css("background-color", "red");
-            break;
-            
-    }*/
-   
-    
     //NEW MATCH
     //TALK TO SERVER
     $('#submitMatch').click(function(e){
@@ -44,35 +30,25 @@ $( document ).ready(function() {
     });
     
     
-    // UPDATE MATCH
-    /*$('#updateMatch').click(function(e){
+    //ADD GOALS
+    $('#country1goalplus').click(function(e){
+        alert($('#country1goals').val());
         
-        var data = {
-            //matchname: $('#matchName').val(),
-            
-            country1name: $('#country1Name').val(),
-            country2name: $('#country2Name').val(),
-            country1Goals: $('#country1goals').val(),
-            country2Goals: $('#country2goals').val(),
-            country1Shots: $('#country1shots').val(),
-            country2Shots: $('#country2shots').val(),
-            country1Fouls: $('#country1fouls').val(),
-            country2Fouls: $('#country2fouls').val(),
+        var data1 = {
+            country1Goals: parseInt($('#country1goals').text()),
         };
-        
-        socket.emit("Update Match", data);
-        console.log("mottie" + data);
-        
-        return false;
-    })
-    
-    socket.on('updateMatchInDB', function(updateMatchInDB){
-        console.log("kappa" + updateMatchInDB);
-        //var newMatch = "<a href='/matches/" + newMatchInDB._id + "'><h2 class='match'>" + newMatchInDB.matchname + "</h2></a>";
-        //$('.matches').append(newMatch);
+        socket.emit("c1plusgoal", data1);
+        alert(data1);
     });
     
-    */
+    socket.on('addedc1goal', function(matchinDB){
+        //console.log("kappa" + newMatchInDB);
+        //var newMatch = "<a href='/matches/" + newMatchInDB._id + "'><h2 class='match'>" + newMatchInDB.matchname + "</h2></a>";
+        $('.country1goals').val() = matchinDB.country1Goals;
+    });
+    
+    
+    
     
     
 });

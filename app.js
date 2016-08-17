@@ -44,6 +44,13 @@ io.on('connection', function(socket){
         io.emit("updateMatchInDB", returnMatch);
       });
   });
+    
+    socket.on("c1plusgoal", function(addgoal){
+      controller.c1plusGoal(addgoal, function(returnMatch){
+        console.log(returnMatch);
+        io.emit("addedc1goal", returnMatch);
+      });
+  });
 });
 
 http.listen(3000, function(){
