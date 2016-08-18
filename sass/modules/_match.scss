@@ -44,14 +44,19 @@ h4 {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+h4 div {
+    padding: 10px;
 }
 
 .match__details {
     color: $textcolor;
-    display: flex;
-    justify-content: center;
     font-size: 2em;
-    flex-wrap: wrap;
+    
 }
 
 .country1span {
@@ -59,4 +64,23 @@ h4 {
 }
 .country2span {
     color: #CF0000;
+}
+
+.match__manage {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.inputfield2 {
+    width: 20%;
 }

@@ -128,11 +128,11 @@ $( document ).ready(function() {
     });
     socket.on('addedc1shot', function(matchinDB){
         console.log(matchinDB);
-        var newresults = "<h4 class='totalshots'><span class='country1span'>" + matchinDB.country1Goals + " </span> Total shots <span class='country1span'>" + matchinDB.country2Goals + "</span>";
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country1goals').val(matchinDB.country1Shots);
-        $('#matchgoals').text(newresults);
+        
+        $('#country1shots').val(matchinDB.country1Shots);
+        $('#country1_shots').text(matchinDB.country1Shots);
+        $('#country2_shots').text(matchinDB.country2Shots);
+        
     });
     
     $('#country1shotsminus').click(function(e){
@@ -140,18 +140,18 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country1Goals: parseInt($('#country1goals').val()),
+            country1Shots: parseInt($('#country1shots').val()),
         };
         console.log(data1);
-        socket.emit("c1minusgoal", data1);
+        socket.emit("c1minusshot", data1);
     });
-    socket.on('removedc1goal', function(matchinDB){
+    socket.on('removedc1shot', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country1goals').val(matchinDB.country1Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country1shots').val(matchinDB.country1Shots);
+        $('#country1_shots').text(matchinDB.country1Shots);
+        $('#country2_shots').text(matchinDB.country2Shots);
+        
     });
     
     //COUNTRY 2
@@ -160,18 +160,18 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country2Goals: parseInt($('#country2goals').val()),
+            country2Shots: parseInt($('#country2shots').val()),
         };
         console.log(data1);
-        socket.emit("c2plusgoal", data1);
+        socket.emit("c2plusshot", data1);
     });
-    socket.on('addedc2goal', function(matchinDB){
+    socket.on('addedc2shot', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country2goals').val(matchinDB.country2Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country2shots').val(matchinDB.country2Shots);
+        $('#country1_shots').text(matchinDB.country1Shots);
+        $('#country2_shots').text(matchinDB.country2Shots);
+        
     });
 
     $('#country2shotsminus').click(function(e){
@@ -179,19 +179,19 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country2Goals: parseInt($('#country2goals').val()),
+            country2Shots: parseInt($('#country2shots').val()),
         };
         console.log(data1);
-        socket.emit("c2minusgoal", data1);
+        socket.emit("c2minusshot", data1);
     });
     
-    socket.on('removedc2goal', function(matchinDB){
+    socket.on('removedc2shot', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country2goals').val(matchinDB.country2Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country2shots').val(matchinDB.country2Shots);
+        $('#country1_shots').text(matchinDB.country1Shots);
+        $('#country2_shots').text(matchinDB.country2Shots);
+        
     });
     
 //====================================================================================================================================
@@ -203,18 +203,18 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country1Goals: parseInt($('#country1goals').val()),
+            country1Fouls: parseInt($('#country1fouls').val()),
         };
         console.log(data1);
-        socket.emit("c1plusgoal", data1);
+        socket.emit("c1plusfoul", data1);
     });
-    socket.on('addedc1goal', function(matchinDB){
+    socket.on('addedc1foul', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country1goals').val(matchinDB.country1Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country1fouls').val(matchinDB.country1Fouls);
+        $('#country1_fouls').text(matchinDB.country1Fouls);
+        $('#country2_fouls').text(matchinDB.country2Fouls);
+        
     });
     
     $('#country1foulminus').click(function(e){
@@ -222,18 +222,18 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country1Goals: parseInt($('#country1goals').val()),
+            country1Fouls: parseInt($('#country1fouls').val()),
         };
         console.log(data1);
-        socket.emit("c1minusgoal", data1);
+        socket.emit("c1minusfoul", data1);
     });
-    socket.on('removedc1goal', function(matchinDB){
+    socket.on('removedc1foul', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country1goals').val(matchinDB.country1Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country1fouls').val(matchinDB.country1Fouls);
+        $('#country1_fouls').text(matchinDB.country1Fouls);
+        $('#country2_fouls').text(matchinDB.country2Fouls);
+        
     });
     
     //COUNTRY 2
@@ -242,38 +242,37 @@ $( document ).ready(function() {
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country2Goals: parseInt($('#country2goals').val()),
+            country2Fouls: parseInt($('#country2fouls').val()),
         };
         console.log(data1);
-        socket.emit("c2plusgoal", data1);
+        socket.emit("c2plusfoul", data1);
     });
-    socket.on('addedc2goal', function(matchinDB){
+    socket.on('addedc2foul', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country2goals').val(matchinDB.country2Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country2fouls').val(matchinDB.country2Fouls);
+        $('#country1_fouls').text(matchinDB.country1Fouls);
+        $('#country2_fouls').text(matchinDB.country2Fouls);
+        
     });
-
+    
     $('#country2foulminus').click(function(e){
         var url = window.location.pathname;
         var id = url.substring(url.lastIndexOf('/') + 1);
         var data1 = {
             _id: id,
-            country2Goals: parseInt($('#country2goals').val()),
+            country2Fouls: parseInt($('#country2fouls').val()),
         };
         console.log(data1);
-        socket.emit("c2minusgoal", data1);
+        socket.emit("c2minusfoul", data1);
     });
-    
-    socket.on('removedc2goal', function(matchinDB){
+    socket.on('removedc2foul', function(matchinDB){
         console.log(matchinDB);
-        var newresults = matchinDB.country1Goals + " - " + matchinDB.country2Goals;
-        console.log(newresults);
-        //$('#matchgoals').text("");
-        $('#country2goals').val(matchinDB.country2Goals);
-        $('#matchgoals').text(newresults);
+        
+        $('#country2fouls').val(matchinDB.country2Fouls);
+        $('#country1_fouls').text(matchinDB.country1Fouls);
+        $('#country2_fouls').text(matchinDB.country2Fouls);
+        
     });
     
 });
