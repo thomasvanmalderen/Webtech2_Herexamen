@@ -3,17 +3,38 @@
     text-align: center;
     padding: 2%;
     font-weight: bold;
+    color: $textcolor;
 }
 
 .matches {
-    padding-left: 15%;
+    padding-left: 12%;
+    margin-bottom: 60px;
 }
 
 .match__match {
     font-size: 1.5em;
     color: $textcolor;
+    /*padding: 1%;*/
+    
 }
 
-.match:visited {
+.match:hover {
+    background-color: cornsilk;
+}
+
+.match {
+    width: 50%;
+    padding: 10px;
+}
+
+.match__match:visited {
     color: $textcolor;
+}
+
+.footertitle {
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 1%;
 }

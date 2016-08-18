@@ -1,6 +1,7 @@
 html
   head
     title= "IMD Football " + match.matchname
+    link(type='text/css', rel='stylesheet', href='http://meyerweb.com/eric/tools/css/reset/reset.css')
     style
       //include ../../build/css/build.css
       include ../css/style.css
@@ -12,24 +13,25 @@ html
   body
     div.container
       h1.match__name(id="matchName" data-matchname= "" + match.matchname)= match.matchname
-      a(href='http://localhost:3000/matches/') Back to matches
+      a.backlink(href='http://localhost:3000/matches/') Back to matches
       div.match__results
         img.country1flag(id=match.country1name)
-        h2.country1name= match.country1name
-        h3.country1goals= JSON.stringify(match.country1Goals)
-        h3.country2goals= JSON.stringify(match.country2Goals)
+        h2.country1name= match.country1name + " "
+        h3.country1goals= JSON.stringify(match.country1Goals) + " - " + JSON.stringify(match.country2Goals)
+        //h3.country2goals= " " + JSON.stringify(match.country2Goals) + " "
         h2.country2name= match.country2name
         img.country2flag(id=match.country1name)
       hr
       div.match__details
         h4.totalshots
-          span= JSON.stringify(match.country1Shots) + ' '
+          span.country1span= JSON.stringify(match.country1Shots) + ' '
           | Total shots 
-          span= JSON.stringify(match.country2Shots)
+          span.country2span= JSON.stringify(match.country2Shots)
+        br
         h4.totalfouls
-          span= JSON.stringify(match.country1Fouls) + ' '
+          span.country1span= JSON.stringify(match.country1Fouls) + ' '
           | Total fouls 
-          span= JSON.stringify(match.country2Fouls)
+          span.country2span= JSON.stringify(match.country2Fouls)
       hr
       br
       div.match__manage

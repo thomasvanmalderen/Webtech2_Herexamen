@@ -8,22 +8,29 @@ body {
   background-position: center; }
 
 .container {
+  font-family: "Helvetica", "Arial", sans-serif;
   margin-top: 50px;
   background-color: white;
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
   padding: 0%;
-  border-radius: 10px; }
+  border-radius: 10px;
+  margin-bottom: 100px; }
 
 form {
-  background-color: #ccc;
+  background-color: #ececec;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 25px; }
 
 .match__create {
-  padding: 1%; }
+  padding: 0%;
+  padding-top: 1%;
+  padding-bottom: 1%; }
+
+.formtitle {
+  font-weight: bold; }
 
 .input {
   padding-left: 15%; }
@@ -49,22 +56,101 @@ input[type="text"] {
   color: #3D3D3D;
   text-align: center;
   width: 50%;
-  padding: 8px; }
+  padding: 8px;
+  border-radius: 7px;
+  cursor: pointer; }
+
+.modbutton {
+  background-color: aqua;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px; }
 
 .app__name {
   font-size: 2.8em;
   text-align: center;
   padding: 2%;
-  font-weight: bold; }
+  font-weight: bold;
+  color: "#3D3D3D"; }
 
 .matches {
-  padding-left: 15%; }
+  padding-left: 12%;
+  margin-bottom: 60px; }
 
 .match__match {
   font-size: 1.5em;
+  color: "#3D3D3D";
+  /*padding: 1%;*/ }
+
+.match:hover {
+  background-color: cornsilk; }
+
+.match {
+  width: 50%;
+  padding: 10px; }
+
+.match__match:visited {
   color: "#3D3D3D"; }
 
-.match:visited {
+.footertitle {
+  background-color: cadetblue;
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 1%; }
+
+.match__name {
+  text-align: center;
+  color: "#3D3D3D";
+  font-size: 3em;
+  padding: 2%; }
+
+.backlink {
+  margin-left: 10%;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 1%; }
+
+.match__results {
+  display: flex;
+  justify-content: center; }
+
+.country1name {
+  font-size: 2em;
+  color: "#3D3D3D";
+  padding: 10px; }
+
+.country2name {
+  font-size: 2em;
+  color: "#3D3D3D";
+  padding: 10px; }
+
+.country1goals {
+  font-size: 3em;
   color: "#3D3D3D"; }
+
+hr {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+
+h4 {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.match__details {
+  color: "#3D3D3D";
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  flex-wrap: wrap; }
+
+.country1span {
+  color: #00CF00; }
+
+.country2span {
+  color: #CF0000; }
 
 /*# sourceMappingURL=style.css.map */

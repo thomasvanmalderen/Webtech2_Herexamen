@@ -38,8 +38,8 @@ io.on('connection', function(socket){
       });
   });
   
-    socket.on("c1plusgoal", function(addgoal){
-      controller.c1plusGoal(addgoal, function(goal1){
+    socket.on("c1plusgoal", function(goals1){
+      controller.c1plusGoal(goals1, function(e){
         //console.log(returnMatch);
         io.emit("addedc1goal");
       });

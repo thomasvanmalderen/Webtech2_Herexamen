@@ -1,0 +1,62 @@
+.match__name {
+    text-align: center;
+    color: $textcolor;
+    font-size: 3em;
+    padding: 2%;
+}
+
+.backlink {
+    margin-left: 10%;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 1%;
+}
+
+.match__results {
+    display: flex;
+    justify-content: center;
+}
+
+.country1name {
+    font-size: 2em;
+    color: $textcolor;
+    padding: 10px;
+}
+.country2name {
+    font-size: 2em;
+    color: $textcolor;
+    padding: 10px;
+}
+
+.country1goals {
+    font-size: 3em;
+    color: $textcolor;
+}
+
+hr {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h4 {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.match__details {
+    color: $textcolor;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    flex-wrap: wrap;
+}
+
+.country1span {
+    color: #00CF00;
+}
+.country2span {
+    color: #CF0000;
+}

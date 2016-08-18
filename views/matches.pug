@@ -13,7 +13,9 @@ html
   div.container
     h1.app__name= "- IMD Football - Euro cup -"
     form.match__create
+      
       div.input
+        h2.formtitle Add new match
         input(type = "text", id = "matchName" class='inputfield' placeholder = "matchname")
         br
         input(type = "text", id = "country1Name" class='inputfield' placeholder = "Name of host country")
@@ -25,3 +27,5 @@ html
         each match in matches
           a.match__match(href = '/matches/' + match.id)
             h2.match #{match.matchname}
+    div.footer
+      h3.footertitle 2016 - Thomas Van Malderen
