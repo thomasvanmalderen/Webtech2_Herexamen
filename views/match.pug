@@ -16,40 +16,47 @@ html
       a.backlink(href='http://localhost:3000/matches/') Back to matches
       div.match__results
         img.country1flag(id=match.country1name)
-        h2.country1name= match.country1name + " "
-        h3.country1goals= JSON.stringify(match.country1Goals) + " - " + JSON.stringify(match.country2Goals)
+        h2.country1name(id="country1name")= match.country1name + " "
+        h3.country1goals(id="matchgoals")= JSON.stringify(match.country1Goals) + " - " + JSON.stringify(match.country2Goals)
         //h3.country2goals= " " + JSON.stringify(match.country2Goals) + " "
-        h2.country2name= match.country2name
+        h2.country2name(id="country1name")= match.country2name
         img.country2flag(id=match.country1name)
       hr
       div.match__details
-        h4.totalshots
+        h4.totalshots(id="totalshots")
           span.country1span= JSON.stringify(match.country1Shots) + ' '
           | Total shots 
           span.country2span= JSON.stringify(match.country2Shots)
         br
-        h4.totalfouls
+        h4.totalfouls(id="totalfouls")
           span.country1span= JSON.stringify(match.country1Fouls) + ' '
           | Total fouls 
           span.country2span= JSON.stringify(match.country2Fouls)
       hr
       br
       div.match__manage
-        p= match._id
         
+        h5.managebuttons Country 1 goals
         div(type = "submit", id = "country1goalplus" class='modbutton')= "+"
         div(type = "submit", id = "country1goalminus" class='modbutton')= "-"
+        h5.managebuttons Country 2 goals
         div(type = "submit", id = "country2goalplus" class='modbutton')= "+"
         div(type = "submit", id = "country2goalminus" class='modbutton')= "-"
+        h5.managebuttons Country 1 shots
         div(type = "submit", id = "country1shotsplus" class='modbutton')= "+"
         div(type = "submit", id = "country1shotsminus" class='modbutton')= "-"
+        h5.managebuttons Country 2 shots
         div(type = "submit", id = "country2shotsplus" class='modbutton')= "+"
         div(type = "submit", id = "country2shotsminus" class='modbutton')= "-"
+        h5.managebuttons Country 1 fouls
         div(type = "submit", id = "country1foulplus" class='modbutton')= "+"
         div(type = "submit", id = "country1foulminus" class='modbutton')= "-"
+        h5.managebuttons Country 2 fouls
         div(type = "submit", id = "country2foulplus" class='modbutton')= "+"
         div(type = "submit", id = "country2foulminus" class='modbutton')= "-"
-        
+        br
+        input(type = "text", id = "matchid" class='inputfield' placeholder = "country1goals" value=match._id)
+        br
         input(type = "text", id = "country1goals" class='inputfield' placeholder = "country1goals" value=match.country1Goals)
         br
         input(type = "text", id = "country2goals" class='inputfield' placeholder = "country2goals" value=match.country2Goals)
