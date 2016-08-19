@@ -131,6 +131,35 @@ io.on('connection', function(socket){
         io.emit("updatedcommentary", returnMatch);
       });
   });
+    
+    socket.on("unlock", function(tohash){
+        //alert("working unlock");
+        console.log("geweldig");
+        
+        console.log(tohash);
+        //console.log(md5());
+       if(md5(tohash) == '8d9f1681272ed981448e1afa0dc92335'){
+           //alert("unlocked");
+           console.log("unlocked");
+           io.emit("unlockedmanage");
+       }
+        
+      
+  });
+    socket.on("unlockcreate", function(tohash2){
+        //alert("working unlock");
+        console.log("geweldig");
+        
+        console.log(tohash2);
+        //console.log(md5());
+       if(md5(tohash2) == '8d9f1681272ed981448e1afa0dc92335'){
+           //alert("unlocked");
+           console.log("unlocked");
+           io.emit("unlockedmanage2");
+       }
+        
+      
+  });
 });
 
 http.listen(3000, function(){

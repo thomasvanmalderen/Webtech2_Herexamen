@@ -41,10 +41,11 @@ html
       hr
       br
       div.manage__unlock
+        h5 Enter password to manage match
         input(type = "text", id = "passwordmanage" class='inputfield4' placeholder = "Password")
-        div(type = "submit", id = "submitAdmin" class='adminbutton1')= "Unlock"
+        
       
-      div.match__manage
+      div.match__manage(id=match_manage)
         div.buttons
           h5.managebuttons Country 1 goals
           div(type = "submit", id = "country1goalplus" class='modbutton1')= "+"

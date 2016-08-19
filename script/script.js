@@ -2,8 +2,35 @@ $( document ).ready(function() {
     //var socket = io.connect('http://localhost:3000');
     var socket = io();
     $('.match__manage').hide();
-    //1mdF0oTb4ll
+    $('.input').hide();
+    //?1mdF0oTb4ll?-8
+    //8d9f1681272ed981448e1afa0dc92335
     
+    $('#passwordmanage').on('keyup', function(e){
+       if(e.keyCode === 13) {
+           //alert("enter");
+           var tohash = $('#passwordmanage').val();
+           alert(tohash);
+           socket.emit("unlock", tohash);
+       };
+     });
+    
+    socket.on('unlockedmanage', function(e){
+        $('.match__manage').show();
+    });
+    
+    $('#passwordmanage2').on('keyup', function(e){
+       if(e.keyCode === 13) {
+           //alert("enter");
+           var tohash2 = $('#passwordmanage2').val();
+           alert(tohash2);
+           socket.emit("unlockcreate", tohash2);
+       };
+     });
+    
+    socket.on('unlockedmanage2', function(e){
+        $('.input').show();
+    });
     
     //NEW MATCH
     //TALK TO SERVER
