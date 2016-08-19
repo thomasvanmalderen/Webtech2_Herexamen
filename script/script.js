@@ -2,6 +2,7 @@ $( document ).ready(function() {
     //var socket = io.connect('http://localhost:3000');
     var socket = io();
     $('.match__manage').hide();
+    //1mdF0oTb4ll
     
     
     //NEW MATCH

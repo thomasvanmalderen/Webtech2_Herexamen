@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var md5 = require('js-md5');
 
 //SOCKET IO
 var http = require('http').Server(app);
