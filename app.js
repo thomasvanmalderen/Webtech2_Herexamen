@@ -123,6 +123,13 @@ io.on('connection', function(socket){
         io.emit("removedc2foul", returnMatch);
       });
   });
+    
+    socket.on("updatecommentary", function(updateMatch){
+      controller.updateCommentary(updateMatch, function(returnMatch){
+        //console.log(returnMatch);
+        io.emit("updatedcommentary", returnMatch);
+      });
+  });
 });
 
 http.listen(3000, function(){

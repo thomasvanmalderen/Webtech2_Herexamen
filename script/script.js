@@ -1,6 +1,8 @@
 $( document ).ready(function() {
     //var socket = io.connect('http://localhost:3000');
     var socket = io();
+    $('.match__manage').hide();
+    
     
     //NEW MATCH
     //TALK TO SERVER
@@ -273,6 +275,27 @@ $( document ).ready(function() {
         $('#country1_fouls').text(matchinDB.country1Fouls);
         $('#country2_fouls').text(matchinDB.country2Fouls);
         
+    });
+    
+    $('#updatecomm').click(function(e){
+       
+           //alert("working commentary");
+           var url = window.location.pathname;
+            var id = url.substring(url.lastIndexOf('/') + 1);
+            var data1 = {
+                _id: id,
+                commentary: 
+                    {message: $('#commentary').val()},
+            };
+            console.log(data1);
+            socket.emit("updatecommentary", data1);
+       
+     });
+    socket.on('updatedcommentary', function(matchinDB){
+        console.log(matchinDB);
+        
+        $('#commentary').val(matchinDB.commentary[0].message);
+        $('#matchcommentary').text(matchinDB.commentary[0].message);
     });
     
 });

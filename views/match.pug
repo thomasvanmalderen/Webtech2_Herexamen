@@ -33,7 +33,17 @@ html
           div Total fouls 
           div.country2span(id="country2_fouls")= ' ' + JSON.stringify(match.country2Fouls)
       hr
+      div.match__commentary
+        h6.commentarytitle Realtime updates
+        div.commentary(id="matchcommentary") 
+          each nestedObject in match.commentary
+            p= nestedObject.message
+      hr
       br
+      div.manage__unlock
+        input(type = "text", id = "passwordmanage" class='inputfield4' placeholder = "Password")
+        div(type = "submit", id = "submitAdmin" class='adminbutton1')= "Unlock"
+      
       div.match__manage
         div.buttons
           h5.managebuttons Country 1 goals
@@ -60,17 +70,25 @@ html
           div(type = "submit", id = "country2foulplus" class='modbutton1')= "+"
           div(type = "submit", id = "country2foulminus" class='modbutton2')= "-"
         br
-        input(type = "text", id = "matchid" class='inputfield' placeholder = "country1goals" value=match._id)
-        br
-        input(type = "text", id = "country1goals" class='inputfield2' placeholder = "country1goals" value=match.country1Goals)
-        br
-        input(type = "text", id = "country2goals" class='inputfield2' placeholder = "country2goals" value=match.country2Goals)
-        br
-        input(type = "text", id = "country1shots" class='inputfield2' placeholder = "country1shots" value=match.country1Shots)
-        br
-        input(type = "text", id = "country2shots" class='inputfield2' placeholder = "country2shots" value=match.country2Shots)
-        br
-        input(type = "text", id = "country1fouls" class='inputfield2' placeholder = "country1fouls" value=match.country1Fouls)
-        br
-        input(type = "text", id = "country2fouls" class='inputfield2' placeholder = "country2fouls" value=match.country2Fouls)
+        textarea(id="commentary" class="inputfield3" cols='60' rows='8')
+          each nestedObject in match.commentary
+           = nestedObject.message
+        div(id="updatecomm" class="updatecomm") Update
+        div.databox
+          input(type = "text", id = "matchid" class='inputfield' placeholder = "country1goals" value=match._id)
+          br
+          input(type = "text", id = "country1goals" class='inputfield2' placeholder = "country1goals" value=match.country1Goals)
+          br
+          input(type = "text", id = "country2goals" class='inputfield2' placeholder = "country2goals" value=match.country2Goals)
+          br
+          input(type = "text", id = "country1shots" class='inputfield2' placeholder = "country1shots" value=match.country1Shots)
+          br
+          input(type = "text", id = "country2shots" class='inputfield2' placeholder = "country2shots" value=match.country2Shots)
+          br
+          input(type = "text", id = "country1fouls" class='inputfield2' placeholder = "country1fouls" value=match.country1Fouls)
+          br
+          input(type = "text", id = "country2fouls" class='inputfield2' placeholder = "country2fouls" value=match.country2Fouls)
+          
+          br
+        
         

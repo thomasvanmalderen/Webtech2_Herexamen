@@ -51,6 +51,19 @@ input[type="text"] {
   margin-left: auto;
   margin-right: auto; }
 
+.inputfield3 {
+  width: 90%;
+  border-radius: 5px; }
+
+.updatecomm {
+  width: 9%;
+  background-color: #FFCC00;
+  cursor: pointer;
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+  border-radius: 7px; }
+
 .flat-button {
   background-color: #FFCC00;
   color: #3D3D3D;
@@ -168,6 +181,15 @@ h4 {
 h4 div {
   padding: 10px; }
 
+.commentarytitle {
+  padding-left: 5%; }
+
+.commentary {
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .match__details {
   color: "#3D3D3D";
   font-size: 2em; }
@@ -193,5 +215,9 @@ h4 div {
 
 .inputfield2 {
   width: 20%; }
+
+.databox {
+  visibility: hidden;
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

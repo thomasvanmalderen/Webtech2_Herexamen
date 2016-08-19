@@ -15,7 +15,7 @@ function create (data, newMatch){
         country1Fouls: 0,
         country2Fouls: 0,
         commentary: [{
-            message: ""
+            message: "No updates yet"
         }]
 	});
     
@@ -206,7 +206,19 @@ function c2minusFoul (data1, updateMatch){
 }
 module.exports.c2minusFoul = c2minusFoul;
 
-
+function updateCommentary (data1, updateMatch){
+    //console.log(id);
+    //console.log("coolie" + data1);
+    console.log("updating commentary");
+    Match.findOne({'_id': data1._id}, function(err, match){
+        if (err) return console.error(err);
+        match.commentary = data1.commentary;
+        console.log(match);
+        match.save();
+        updateMatch(match);
+    })
+}
+module.exports.updateCommentary = updateCommentary;
 
 
 
