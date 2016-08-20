@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 //CONNECT TO DATABASE
 mongoose.connect('mongodb://localhost:27017/Football');
 
-
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.set('view engine', 'pug');
 

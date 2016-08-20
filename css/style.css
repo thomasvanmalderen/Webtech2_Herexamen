@@ -60,6 +60,7 @@ input[type="text"] {
 
 .updatecomm {
   width: 9%;
+  height: 50px;
   background-color: #FFCC00;
   cursor: pointer;
   display: flex;
@@ -222,5 +223,8 @@ h4 div {
 .databox {
   visibility: hidden;
   display: none; }
+
+.manage__unlock {
+  padding-left: 5%; }
 
 /*# sourceMappingURL=style.css.map */
