@@ -1,9 +1,7 @@
 var Match = require('../models/Match');
 
 function create (data, newMatch){
-
     console.log('Created new match');
-	// save a new instance of this model
 	var match = new Match({
 		matchname: data.matchname,
         country1name: data.country1name,
@@ -18,7 +16,6 @@ function create (data, newMatch){
             message: "No updates yet"
         }]
 	});
-    
 	match.save(function (err, match) {
 	  if (err) return console.error(err);
         console.log("Saved " + match);
@@ -29,12 +26,9 @@ function create (data, newMatch){
 module.exports.create = create;
 
 
-//+===============================================================================================
+// MANAGE GOAL FUNCTIONS===============================================================================================
 
-//ADD GOAL
 function c1plusGoal (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
     console.log("adding goal");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
@@ -46,8 +40,6 @@ function c1plusGoal (data1, updateMatch){
 }
 module.exports.c1plusGoal = c1plusGoal;
 function c1minusGoal (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
     console.log("removing goal");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
@@ -60,8 +52,6 @@ function c1minusGoal (data1, updateMatch){
 module.exports.c1minusGoal = c1minusGoal;
 
 function c2plusGoal (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
     console.log("adding goal");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
@@ -73,8 +63,6 @@ function c2plusGoal (data1, updateMatch){
 }
 module.exports.c2plusGoal = c2plusGoal;
 function c2minusGoal (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
     console.log("removing goal");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
@@ -87,13 +75,10 @@ function c2minusGoal (data1, updateMatch){
 module.exports.c2minusGoal = c2minusGoal;
 
 
-//+============================================================================================================================
+// MANAGE SHOTS FUNCTIONS============================================================================================================================
 
-//ADD Shots
 function c1plusShot (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("adding goal");
+    console.log("adding shot");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country1Shots = data1.country1Shots + 1;
@@ -104,9 +89,7 @@ function c1plusShot (data1, updateMatch){
 }
 module.exports.c1plusShot = c1plusShot;
 function c1minusShot (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("removing goal");
+    console.log("removing shot");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country1Shots = data1.country1Shots - 1;
@@ -118,9 +101,7 @@ function c1minusShot (data1, updateMatch){
 module.exports.c1minusShot = c1minusShot;
 
 function c2plusShot (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("adding goal");
+    console.log("adding shot");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country2Shots = data1.country2Shots + 1;
@@ -131,9 +112,7 @@ function c2plusShot (data1, updateMatch){
 }
 module.exports.c2plusShot = c2plusShot;
 function c2minusShot (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("removing goal");
+    console.log("removing shot");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country2Shots = data1.country2Shots - 1;
@@ -144,18 +123,10 @@ function c2minusShot (data1, updateMatch){
 }
 module.exports.c2minusShot = c2minusShot;
 
+// MANAGE FOULS FUNCTIONS ====================================================================================
 
-
-//====================================================================================
-
-
-
-
-//ADD FOULFoul
 function c1plusFoul (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("adding goal");
+    console.log("adding foul");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country1Fouls = data1.country1Fouls + 1;
@@ -166,9 +137,7 @@ function c1plusFoul (data1, updateMatch){
 }
 module.exports.c1plusFoul = c1plusFoul;
 function c1minusFoul (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("removing goal");
+    console.log("removing foul");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country1Fouls = data1.country1Fouls - 1;
@@ -180,9 +149,7 @@ function c1minusFoul (data1, updateMatch){
 module.exports.c1minusFoul = c1minusFoul;
 
 function c2plusFoul (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("adding goal");
+    console.log("adding foul");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country2Fouls = data1.country2Fouls + 1;
@@ -193,9 +160,7 @@ function c2plusFoul (data1, updateMatch){
 }
 module.exports.c2plusFoul = c2plusFoul;
 function c2minusFoul (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
-    console.log("removing goal");
+    console.log("removing foul");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
         match.country2Fouls = data1.country2Fouls - 1;
@@ -206,9 +171,9 @@ function c2minusFoul (data1, updateMatch){
 }
 module.exports.c2minusFoul = c2minusFoul;
 
+// MANAGE COMMENTARY FUNCTION ====================================================================================
+
 function updateCommentary (data1, updateMatch){
-    //console.log(id);
-    //console.log("coolie" + data1);
     console.log("updating commentary");
     Match.findOne({'_id': data1._id}, function(err, match){
         if (err) return console.error(err);
@@ -219,9 +184,6 @@ function updateCommentary (data1, updateMatch){
     })
 }
 module.exports.updateCommentary = updateCommentary;
-
-
-
 
 //GET FUNCTIONS
 function getAll (req, res) {
@@ -239,9 +201,6 @@ function getMatch (req, res, id) {
             console.log(match);
         }
         json.match = match;
-        //console.log('json match=' + json.match);
-		//console.log('json match.matchname=' + json.match.matchname);
-        //console.log(json.match.country1Goals);
 		return res.render('match', {match: match});
     }
   )
