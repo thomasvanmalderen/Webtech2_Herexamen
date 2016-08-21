@@ -116,6 +116,8 @@ io.on('connection', function(socket){
        if(md5(tohash) == '8d9f1681272ed981448e1afa0dc92335'){
            console.log("unlocked");
            io.emit("unlockedmanage");
+       } else {
+           alert("Incorrect password");
        }
     });
     socket.on("unlockcreate", function(tohash2){
@@ -124,6 +126,8 @@ io.on('connection', function(socket){
        if(md5(tohash2) == '8d9f1681272ed981448e1afa0dc92335'){
            console.log("unlocked");
            io.emit("unlockedmanage2");
+       } else {
+           alert("Incorrect password");
        }
     });
 });

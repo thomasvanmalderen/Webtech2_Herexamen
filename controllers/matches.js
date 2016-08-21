@@ -189,7 +189,7 @@ module.exports.updateCommentary = updateCommentary;
 function getAll (req, res) {
 	Match.find( function(err, matches){
 		if (err) return console.error(err);
-        //console.log(matches);
+        console.log(matches);
 		return res.render('matches', {matches: matches});
 	});
 }
